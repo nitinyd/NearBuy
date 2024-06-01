@@ -13,6 +13,7 @@ class RestaurantListVC: BaseVC {
     @IBOutlet private var tableView: UITableView!
     
     private var restaurantFeed = RestaurantViewModel()
+    private var refreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,8 @@ extension RestaurantListVC {
         tableView.dataSource = self
         let nib = UINib(nibName: "\(RestaurantTVCell.self)", bundle: .main)
         tableView.register(nib, forCellReuseIdentifier: "\(RestaurantTVCell.self)")
+        refreshControl.addTarget(self, action: #selector(refreshPage), for: .valueChanged)
+        tableView.refreshControl = refreshControl
     }
     
     private func setupSearchBar() {
@@ -83,10 +86,17 @@ extension RestaurantListVC: APIResultProtocol {
         } else {
             tableView.insertRows(at: restaurantFeed.lastPageIndexes, with: .none)
         }
+        refreshControl.endRefreshing()
     }
     
     func fetchFailure(with error: any Error, for params: [String : Any]) {
         //Show Error Here
         return
+    }
+    
+    @objc private func refreshPage() {
+        restaurantFeed.fetch(page: .first)
+        tableView.reloadData()
+        refreshControl.endRefreshing()
     }
 }
