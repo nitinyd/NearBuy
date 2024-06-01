@@ -16,6 +16,9 @@
 		1E860AD32C0AE4C80057BCF7 /* RestaurantListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E860AD02C0AE4C80057BCF7 /* RestaurantListVC.swift */; };
 		1E860AD62C0AE4E00057BCF7 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E860AD52C0AE4E00057BCF7 /* BaseVC.swift */; };
 		1E860AD92C0AE5920057BCF7 /* APIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E860AD82C0AE5920057BCF7 /* APIProtocol.swift */; };
+		1E860ADB2C0AE5C70057BCF7 /* APIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E860ADA2C0AE5C70057BCF7 /* APIModel.swift */; };
+		1E860ADD2C0AE5CC0057BCF7 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E860ADC2C0AE5CC0057BCF7 /* APIManager.swift */; };
+		1E860ADF2C0AE6040057BCF7 /* NetworkingUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E860ADE2C0AE6040057BCF7 /* NetworkingUtil.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		1E860AD12C0AE4C80057BCF7 /* RestaurantListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestaurantListVC.xib; sourceTree = "<group>"; };
 		1E860AD52C0AE4E00057BCF7 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		1E860AD82C0AE5920057BCF7 /* APIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProtocol.swift; sourceTree = "<group>"; };
+		1E860ADA2C0AE5C70057BCF7 /* APIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIModel.swift; sourceTree = "<group>"; };
+		1E860ADC2C0AE5CC0057BCF7 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		1E860ADE2C0AE6040057BCF7 /* NetworkingUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingUtil.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +102,9 @@
 			isa = PBXGroup;
 			children = (
 				1E860AD82C0AE5920057BCF7 /* APIProtocol.swift */,
+				1E860ADA2C0AE5C70057BCF7 /* APIModel.swift */,
+				1E860ADC2C0AE5CC0057BCF7 /* APIManager.swift */,
+				1E860ADE2C0AE6040057BCF7 /* NetworkingUtil.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -171,6 +180,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E860ADF2C0AE6040057BCF7 /* NetworkingUtil.swift in Sources */,
+				1E860ADD2C0AE5CC0057BCF7 /* APIManager.swift in Sources */,
+				1E860ADB2C0AE5C70057BCF7 /* APIModel.swift in Sources */,
 				1E860AB92C0AE4590057BCF7 /* AppDelegate.swift in Sources */,
 				1E860AC32C0AE4590057BCF7 /* NearBuy.xcdatamodeld in Sources */,
 				1E860ABB2C0AE4590057BCF7 /* SceneDelegate.swift in Sources */,
