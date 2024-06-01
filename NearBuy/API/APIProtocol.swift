@@ -15,6 +15,6 @@ protocol APIResultProtocol: AnyObject {
 protocol APIModelProtocol: APIResultProtocol {
     func getApiEndpoint() -> String
     func getParams() -> [String: Any]
-    func parse(json: [Any], params: [String: Any])
+    func parse(json: [String: Any], params: [String: Any])
     func parse(data: Data, params: [String: Any]) throws
 }

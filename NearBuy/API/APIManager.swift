@@ -20,7 +20,7 @@ extension APIManager {
         
         let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
             guard let data = data,
-                  let json = try? JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed) as? [Any]
+                  let json = try? JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed) as? [String: Any]
             else {
                 if let error = error {
                     delegate.fetchFailure(with: error, for: params)
