@@ -71,7 +71,7 @@ extension RestaurantViewModel {
     }
     
     func canFetchNextPage() -> Bool {
-        return !self.apiFeed.apiInProgress && !self.isSearching  && self.apiFeed.status != .unknown && self.apiFeed.status != .contentOver
+        return !self.apiFeed.apiInProgress && !self.isSearching  && self.apiFeed.status != .unknown
     }
 }
 
