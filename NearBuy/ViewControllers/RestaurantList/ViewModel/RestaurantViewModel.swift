@@ -67,8 +67,8 @@ class RestaurantViewModel: PaginatedFeed {
         }
         if currentPage == 1 {
             venueDataManager.deleteAll()
-            venueDataManager.updateVenues(venues: fetchedVenueList)
         }
+        venueDataManager.updateVenues(venues: decodedData.venues)
     }
     
     func populateLocalData() {
