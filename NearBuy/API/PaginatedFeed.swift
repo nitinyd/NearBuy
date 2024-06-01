@@ -37,11 +37,11 @@ class PaginatedFeed: APIModel, PaginatedFeedProtocol {
         
         switch status {
         case .success:
-            currentPage = currentPage + 1
             delegate?.fetchSuccess(for: params)
+            currentPage = currentPage + 1
         case .contentOver:
-            currentPage = currentPage + 1
             delegate?.fetchSuccess(for: params)
+            currentPage = currentPage + 1
         case .error(let error):
             delegate?.fetchFailure(with: error, for: params)
         case .unknown:
