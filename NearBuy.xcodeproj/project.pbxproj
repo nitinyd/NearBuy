@@ -9,23 +9,25 @@
 /* Begin PBXBuildFile section */
 		1E860AB92C0AE4590057BCF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E860AB82C0AE4590057BCF7 /* AppDelegate.swift */; };
 		1E860ABB2C0AE4590057BCF7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E860ABA2C0AE4590057BCF7 /* SceneDelegate.swift */; };
-		1E860ABD2C0AE4590057BCF7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E860ABC2C0AE4590057BCF7 /* ViewController.swift */; };
-		1E860AC02C0AE4590057BCF7 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 1E860ABF2C0AE4590057BCF7 /* Base */; };
 		1E860AC32C0AE4590057BCF7 /* NearBuy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1E860AC12C0AE4590057BCF7 /* NearBuy.xcdatamodeld */; };
 		1E860AC52C0AE45B0057BCF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E860AC42C0AE45B0057BCF7 /* Assets.xcassets */; };
 		1E860AC82C0AE45B0057BCF7 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 1E860AC72C0AE45B0057BCF7 /* Base */; };
+		1E860AD22C0AE4C80057BCF7 /* RestaurantListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E860AD12C0AE4C80057BCF7 /* RestaurantListVC.xib */; };
+		1E860AD32C0AE4C80057BCF7 /* RestaurantListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E860AD02C0AE4C80057BCF7 /* RestaurantListVC.swift */; };
+		1E860AD62C0AE4E00057BCF7 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E860AD52C0AE4E00057BCF7 /* BaseVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1E860AB52C0AE4590057BCF7 /* NearBuy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NearBuy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E860AB82C0AE4590057BCF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E860ABA2C0AE4590057BCF7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1E860ABC2C0AE4590057BCF7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1E860ABF2C0AE4590057BCF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1E860AC22C0AE4590057BCF7 /* NearBuy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NearBuy.xcdatamodel; sourceTree = "<group>"; };
 		1E860AC42C0AE45B0057BCF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1E860AC72C0AE45B0057BCF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1E860AC92C0AE45B0057BCF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1E860AD02C0AE4C80057BCF7 /* RestaurantListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListVC.swift; sourceTree = "<group>"; };
+		1E860AD12C0AE4C80057BCF7 /* RestaurantListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestaurantListVC.xib; sourceTree = "<group>"; };
+		1E860AD52C0AE4E00057BCF7 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +60,33 @@
 		1E860AB72C0AE4590057BCF7 /* NearBuy */ = {
 			isa = PBXGroup;
 			children = (
+				1E860ACF2C0AE4A30057BCF7 /* ViewControllers */,
 				1E860AB82C0AE4590057BCF7 /* AppDelegate.swift */,
 				1E860ABA2C0AE4590057BCF7 /* SceneDelegate.swift */,
-				1E860ABC2C0AE4590057BCF7 /* ViewController.swift */,
-				1E860ABE2C0AE4590057BCF7 /* Main.storyboard */,
 				1E860AC42C0AE45B0057BCF7 /* Assets.xcassets */,
 				1E860AC62C0AE45B0057BCF7 /* LaunchScreen.storyboard */,
 				1E860AC92C0AE45B0057BCF7 /* Info.plist */,
 				1E860AC12C0AE4590057BCF7 /* NearBuy.xcdatamodeld */,
 			);
 			path = NearBuy;
+			sourceTree = "<group>";
+		};
+		1E860ACF2C0AE4A30057BCF7 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1E860AD42C0AE4D60057BCF7 /* RestaurantListVC */,
+				1E860AD52C0AE4E00057BCF7 /* BaseVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		1E860AD42C0AE4D60057BCF7 /* RestaurantListVC */ = {
+			isa = PBXGroup;
+			children = (
+				1E860AD02C0AE4C80057BCF7 /* RestaurantListVC.swift */,
+				1E860AD12C0AE4C80057BCF7 /* RestaurantListVC.xib */,
+			);
+			path = RestaurantListVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,7 +149,7 @@
 			files = (
 				1E860AC52C0AE45B0057BCF7 /* Assets.xcassets in Resources */,
 				1E860AC82C0AE45B0057BCF7 /* Base in Resources */,
-				1E860AC02C0AE4590057BCF7 /* Base in Resources */,
+				1E860AD22C0AE4C80057BCF7 /* RestaurantListVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,24 +160,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E860ABD2C0AE4590057BCF7 /* ViewController.swift in Sources */,
 				1E860AB92C0AE4590057BCF7 /* AppDelegate.swift in Sources */,
 				1E860AC32C0AE4590057BCF7 /* NearBuy.xcdatamodeld in Sources */,
 				1E860ABB2C0AE4590057BCF7 /* SceneDelegate.swift in Sources */,
+				1E860AD32C0AE4C80057BCF7 /* RestaurantListVC.swift in Sources */,
+				1E860AD62C0AE4E00057BCF7 /* BaseVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		1E860ABE2C0AE4590057BCF7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1E860ABF2C0AE4590057BCF7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1E860AC62C0AE45B0057BCF7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -301,7 +313,6 @@
 				INFOPLIST_FILE = NearBuy/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -329,7 +340,6 @@
 				INFOPLIST_FILE = NearBuy/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
