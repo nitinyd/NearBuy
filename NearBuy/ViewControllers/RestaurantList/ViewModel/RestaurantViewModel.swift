@@ -80,6 +80,7 @@ class RestaurantViewModel: PaginatedFeed {
 extension RestaurantViewModel {
     func search(for query: String) {
         if query.isEmpty {
+            searchedVenueList = []
             isSearching = false
             return
         } else {
