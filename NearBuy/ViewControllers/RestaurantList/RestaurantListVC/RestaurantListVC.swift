@@ -20,6 +20,8 @@ class RestaurantListVC: BaseVC {
         setupTableView()
         setupSearchBar()
         restaurantFeed.fetch(page: .first)
+        restaurantFeed.populateLocalData()
+        tableView.reloadData()
     }
 }
 

@@ -19,8 +19,8 @@ class RestaurantViewModel: PaginatedFeed {
     
     private(set) var fetchedVenueList: [Venue] = []
     private(set) var searchedVenueList: [Venue] = []
-    
-    var isSearching = false
+    private var venueDataManager = VenueDataManager()
+    private var isSearching = false
     
     override func getApiEndpoint() -> String {
         return "api.seatgeek.com/2/venues"
@@ -65,6 +65,14 @@ class RestaurantViewModel: PaginatedFeed {
             let indexPath = IndexPath(item: index, section: 0)
             lastPageIndexes.append(indexPath)
         }
+        if currentPage == 1 {
+            venueDataManager.deleteAll()
+            venueDataManager.updateVenues(venues: fetchedVenueList)
+        }
+    }
+    
+    func populateLocalData() {
+        fetchedVenueList = venueDataManager.getAll() ?? []
     }
 }
 

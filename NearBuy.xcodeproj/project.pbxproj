@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E6BF10B2C0AFBAC00046345 /* VenueDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6BF10A2C0AFBAC00046345 /* VenueDataRepository.swift */; };
+		1E6BF10D2C0AFBC900046345 /* BaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6BF10C2C0AFBC900046345 /* BaseRepository.swift */; };
+		1E6BF10F2C0AFC1800046345 /* VenuePersistentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6BF10E2C0AFC1800046345 /* VenuePersistentStorage.swift */; };
+		1E6BF1112C0AFCFC00046345 /* VenueDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6BF1102C0AFCFC00046345 /* VenueDataManager.swift */; };
 		1E860AB92C0AE4590057BCF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E860AB82C0AE4590057BCF7 /* AppDelegate.swift */; };
 		1E860ABB2C0AE4590057BCF7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E860ABA2C0AE4590057BCF7 /* SceneDelegate.swift */; };
 		1E860AC32C0AE4590057BCF7 /* NearBuy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1E860AC12C0AE4590057BCF7 /* NearBuy.xcdatamodeld */; };
@@ -24,9 +28,14 @@
 		1E860AE62C0AEACD0057BCF7 /* RestaurantTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E860AE32C0AEACD0057BCF7 /* RestaurantTVCell.swift */; };
 		1E860AE92C0AEC220057BCF7 /* VenueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E860AE82C0AEC220057BCF7 /* VenueModel.swift */; };
 		1E860AEE2C0AEE380057BCF7 /* RestaurantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E860AED2C0AEE380057BCF7 /* RestaurantViewModel.swift */; };
+		1E860AF72C0AFB210057BCF7 /* VenueCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E860AF52C0AFB210057BCF7 /* VenueCD.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E6BF10A2C0AFBAC00046345 /* VenueDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueDataRepository.swift; sourceTree = "<group>"; };
+		1E6BF10C2C0AFBC900046345 /* BaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepository.swift; sourceTree = "<group>"; };
+		1E6BF10E2C0AFC1800046345 /* VenuePersistentStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuePersistentStorage.swift; sourceTree = "<group>"; };
+		1E6BF1102C0AFCFC00046345 /* VenueDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueDataManager.swift; sourceTree = "<group>"; };
 		1E860AB52C0AE4590057BCF7 /* NearBuy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NearBuy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E860AB82C0AE4590057BCF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E860ABA2C0AE4590057BCF7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +55,7 @@
 		1E860AE42C0AEACD0057BCF7 /* RestaurantTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestaurantTVCell.xib; sourceTree = "<group>"; };
 		1E860AE82C0AEC220057BCF7 /* VenueModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueModel.swift; sourceTree = "<group>"; };
 		1E860AED2C0AEE380057BCF7 /* RestaurantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewModel.swift; sourceTree = "<group>"; };
+		1E860AF52C0AFB210057BCF7 /* VenueCD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueCD.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +69,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E6BF1122C0AFD3400046345 /* VenueCD */ = {
+			isa = PBXGroup;
+			children = (
+				1E860AF52C0AFB210057BCF7 /* VenueCD.swift */,
+				1E6BF10A2C0AFBAC00046345 /* VenueDataRepository.swift */,
+				1E6BF1102C0AFCFC00046345 /* VenueDataManager.swift */,
+			);
+			path = VenueCD;
+			sourceTree = "<group>";
+		};
 		1E860AAC2C0AE4590057BCF7 = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +98,7 @@
 		1E860AB72C0AE4590057BCF7 /* NearBuy */ = {
 			isa = PBXGroup;
 			children = (
+				1E860AF42C0AFB130057BCF7 /* CoreData */,
 				1E860AD72C0AE58B0057BCF7 /* API */,
 				1E860ACF2C0AE4A30057BCF7 /* ViewControllers */,
 				1E860AB82C0AE4590057BCF7 /* AppDelegate.swift */,
@@ -85,7 +106,6 @@
 				1E860AC42C0AE45B0057BCF7 /* Assets.xcassets */,
 				1E860AC62C0AE45B0057BCF7 /* LaunchScreen.storyboard */,
 				1E860AC92C0AE45B0057BCF7 /* Info.plist */,
-				1E860AC12C0AE4590057BCF7 /* NearBuy.xcdatamodeld */,
 			);
 			path = NearBuy;
 			sourceTree = "<group>";
@@ -154,6 +174,17 @@
 				1E860AED2C0AEE380057BCF7 /* RestaurantViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1E860AF42C0AFB130057BCF7 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				1E6BF1122C0AFD3400046345 /* VenueCD */,
+				1E6BF10E2C0AFC1800046345 /* VenuePersistentStorage.swift */,
+				1E6BF10C2C0AFBC900046345 /* BaseRepository.swift */,
+				1E860AC12C0AE4590057BCF7 /* NearBuy.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,11 +262,16 @@
 				1E860ADF2C0AE6040057BCF7 /* NetworkingUtil.swift in Sources */,
 				1E860ADD2C0AE5CC0057BCF7 /* APIManager.swift in Sources */,
 				1E860ADB2C0AE5C70057BCF7 /* APIModel.swift in Sources */,
+				1E6BF1112C0AFCFC00046345 /* VenueDataManager.swift in Sources */,
+				1E6BF10B2C0AFBAC00046345 /* VenueDataRepository.swift in Sources */,
 				1E860AE92C0AEC220057BCF7 /* VenueModel.swift in Sources */,
 				1E860AB92C0AE4590057BCF7 /* AppDelegate.swift in Sources */,
 				1E860AC32C0AE4590057BCF7 /* NearBuy.xcdatamodeld in Sources */,
 				1E860AE12C0AE8B10057BCF7 /* PaginatedFeed.swift in Sources */,
 				1E860ABB2C0AE4590057BCF7 /* SceneDelegate.swift in Sources */,
+				1E860AF72C0AFB210057BCF7 /* VenueCD.swift in Sources */,
+				1E6BF10F2C0AFC1800046345 /* VenuePersistentStorage.swift in Sources */,
+				1E6BF10D2C0AFBC900046345 /* BaseRepository.swift in Sources */,
 				1E860AD32C0AE4C80057BCF7 /* RestaurantListVC.swift in Sources */,
 				1E860AEE2C0AEE380057BCF7 /* RestaurantViewModel.swift in Sources */,
 				1E860AE62C0AEACD0057BCF7 /* RestaurantTVCell.swift in Sources */,
