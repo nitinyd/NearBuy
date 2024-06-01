@@ -15,7 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        let restaurantListVC = RestaurantListVC()
+        let restaurantListVC = RestaurantListVC(viewModel: RestaurantViewModel(apiFeed: RestaurantApiFeed(), dataManager: VenueDataManager()))
         self.window?.rootViewController = restaurantListVC
         self.window?.makeKeyAndVisible()
     }

@@ -7,8 +7,12 @@
 
 import Foundation
 
-class RestaurantViewModel: PaginatedFeed {
-    
+protocol RestaurantViewModelProtcol: AnyObject {
+    func fetchSuccess(for params: [String: Any])
+    func fetchFailure(with error: Error, for params: [String: Any])
+}
+
+class RestaurantViewModel: APIResultProtocol {
     var currentVenueList: [Venue] {
         if isSearching {
             return searchedVenueList
@@ -16,59 +20,34 @@ class RestaurantViewModel: PaginatedFeed {
             return fetchedVenueList
         }
     }
-    
+    weak var delegate: RestaurantViewModelProtcol?
     private(set) var fetchedVenueList: [Venue] = []
     private(set) var searchedVenueList: [Venue] = []
-    private var venueDataManager = VenueDataManager()
     private var isSearching = false
     
-    override func getApiEndpoint() -> String {
-        return "api.seatgeek.com/2/venues"
+    private var apiFeed: RestaurantApiFeedProtocol!
+    private var venueDataManager: VenueDataManager!
+    
+    init(apiFeed: RestaurantApiFeedProtocol, dataManager: VenueDataManager) {
+        self.apiFeed = apiFeed
+        self.venueDataManager = dataManager
+        self.apiFeed.delegate = self
     }
     
-    override func getParams() -> [String : Any] {
-        let perPage = currentPage == 1 ? 10 : 10
-        return ["page": "\(currentPage)", 
-                "per_page": perPage,
-                "client_id": "Mzg0OTc0Njl8MTcwMDgxMTg5NC44MDk2NjY5",
-                "lat":"12.971599",
-                "lon": "77.594566",
-                "range": "12mi"]
-    }
-    
-    override func removeOldData() {
-        super.removeOldData()
-        fetchedVenueList.removeAll()
-    }
-    
-    override func fetch(page: PaginatedFeed.Page) {
-        if apiInProgress { return }
+    func fetch(page: PaginatedFeed.Page) {
+        if apiFeed.apiInProgress { return }
         if page == .first {
-            self.removeOldData()
+            fetchedVenueList.removeAll()
         }
-        super.fetch(page: page)
+        apiFeed.fetch(page: page)
     }
     
-    override func parse(data: Data, params: [String : Any]) throws {
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .useDefaultKeys
-        let decodedData = try decoder.decode(VenueList.self, from: data)
-        
-        lastPageIndexes.removeAll()
-        if decodedData.venues.isEmpty {
-            status = .contentOver
-            return
-        }
-        let oldCellCount = fetchedVenueList.count
-        fetchedVenueList.append(contentsOf: decodedData.venues)
-        for index in oldCellCount..<fetchedVenueList.count {
-            let indexPath = IndexPath(item: index, section: 0)
-            lastPageIndexes.append(indexPath)
-        }
-        if currentPage == 1 {
-            venueDataManager.deleteAll()
-        }
-        venueDataManager.updateVenues(venues: decodedData.venues)
+    func getLastPageIndexes() -> [IndexPath] {
+        return apiFeed.lastPageIndexes
+    }
+    
+    func isFirstPage() -> Bool {
+        return apiFeed.currentPage == 1
     }
     
     func populateLocalData() {
@@ -92,8 +71,22 @@ extension RestaurantViewModel {
     }
     
     func canFetchNextPage() -> Bool {
-        return !self.apiInProgress && !self.isSearching  && self.status != .unknown && self.status != .contentOver
+        return !self.apiFeed.apiInProgress && !self.isSearching  && self.apiFeed.status != .unknown && self.apiFeed.status != .contentOver
     }
 }
 
-//Slider
+//API
+extension RestaurantViewModel {
+    func fetchSuccess(for params: [String : Any]) {
+        if apiFeed.currentPage == 1 {
+            venueDataManager.deleteAll()
+        }
+        venueDataManager.updateVenues(venues: apiFeed.getVenueList())
+        fetchedVenueList = apiFeed.getVenueList()
+        delegate?.fetchSuccess(for: params)
+    }
+    
+    func fetchFailure(with error: any Error, for params: [String : Any]) {
+        delegate?.fetchFailure(with: error, for: params)
+    }
+}

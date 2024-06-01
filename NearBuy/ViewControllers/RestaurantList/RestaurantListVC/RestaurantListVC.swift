@@ -12,9 +12,18 @@ class RestaurantListVC: BaseVC {
     @IBOutlet private var searchBar: UISearchBar!
     @IBOutlet private var tableView: UITableView!
     
-    private var restaurantFeed = RestaurantViewModel()
+    private var restaurantFeed: RestaurantViewModel!
     private var refreshControl = UIRefreshControl()
 
+    init(viewModel: RestaurantViewModel) {
+        super.init(nibName: "\(RestaurantListVC.self)", bundle: .main)
+        restaurantFeed = viewModel
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         restaurantFeed.delegate = self
@@ -79,12 +88,12 @@ extension RestaurantListVC: UISearchBarDelegate {
     }
 }
 
-extension RestaurantListVC: APIResultProtocol {
+extension RestaurantListVC: RestaurantViewModelProtcol {
     func fetchSuccess(for params: [String : Any]) {
-        if restaurantFeed.currentPage == 1 {
+        if restaurantFeed.isFirstPage() {
             tableView.reloadData()
         } else {
-            tableView.insertRows(at: restaurantFeed.lastPageIndexes, with: .none)
+            tableView.insertRows(at: restaurantFeed.getLastPageIndexes(), with: .none)
         }
         refreshControl.endRefreshing()
     }
