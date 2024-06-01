@@ -12,12 +12,12 @@ class RestaurantListVC: BaseVC {
     @IBOutlet private var searchBar: UISearchBar!
     @IBOutlet private var tableView: UITableView!
     
-    private var restaurantFeed: RestaurantViewModel!
+    private var restaurantViewModel: RestaurantViewModel!
     private var refreshControl = UIRefreshControl()
 
     init(viewModel: RestaurantViewModel) {
         super.init(nibName: "\(RestaurantListVC.self)", bundle: .main)
-        restaurantFeed = viewModel
+        restaurantViewModel = viewModel
     }
     
     required init?(coder: NSCoder) {
@@ -26,11 +26,11 @@ class RestaurantListVC: BaseVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        restaurantFeed.delegate = self
+        restaurantViewModel.delegate = self
         setupTableView()
         setupSearchBar()
-        restaurantFeed.fetch(page: .first)
-        restaurantFeed.populateLocalData()
+        restaurantViewModel.fetch(page: .first)
+        restaurantViewModel.populateLocalData()
         tableView.reloadData()
     }
 }
@@ -53,7 +53,7 @@ extension RestaurantListVC {
 extension RestaurantListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        restaurantFeed.currentVenueList.count
+        restaurantViewModel.currentVenueList.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -62,16 +62,16 @@ extension RestaurantListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "\(RestaurantTVCell.self)", for: indexPath) as! RestaurantTVCell
-        cell.venueData = restaurantFeed.currentVenueList[indexPath.row]
+        cell.venueData = restaurantViewModel.currentVenueList[indexPath.row]
         return cell
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         //can make custom refresh Control here
-        if restaurantFeed.canFetchNextPage() {
+        if restaurantViewModel.canFetchNextPage() {
             let bottom = tableView.contentSize.height + tableView.contentInset.bottom - tableView.bounds.size.height
             if (tableView.contentOffset.y + 5 >= bottom) {
-                restaurantFeed.fetch(page: .next)
+                restaurantViewModel.fetch(page: .next)
             }
         }
     }
@@ -83,17 +83,17 @@ extension RestaurantListVC: UITableViewDelegate, UITableViewDataSource {
 
 extension RestaurantListVC: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        restaurantFeed.search(for: searchText)
+        restaurantViewModel.search(for: searchText)
         tableView.reloadData()
     }
 }
 
 extension RestaurantListVC: RestaurantViewModelProtcol {
     func fetchSuccess(for params: [String : Any]) {
-        if restaurantFeed.isFirstPage() {
+        if restaurantViewModel.isFirstPage() {
             tableView.reloadData()
         } else {
-            tableView.insertRows(at: restaurantFeed.getLastPageIndexes(), with: .none)
+            tableView.insertRows(at: restaurantViewModel.getLastPageIndexes(), with: .none)
         }
         refreshControl.endRefreshing()
     }
@@ -104,7 +104,7 @@ extension RestaurantListVC: RestaurantViewModelProtcol {
     }
     
     @objc private func refreshPage() {
-        restaurantFeed.fetch(page: .first)
+        restaurantViewModel.fetch(page: .first)
         tableView.reloadData()
         refreshControl.endRefreshing()
     }
