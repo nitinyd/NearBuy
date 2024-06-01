@@ -44,6 +44,10 @@ class PaginatedFeed: APIModel, PaginatedFeedProtocol {
             delegate?.fetchSuccess(for: params)
         case .error(let error):
             delegate?.fetchFailure(with: error, for: params)
+        case .unknown:
+            let message = ["msg": "No Response from Server"]
+            let error = NSError(domain: "Error", code: -1, userInfo: message)
+            delegate?.fetchFailure(with: error, for: params)
         }
     }
 }

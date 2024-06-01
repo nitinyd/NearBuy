@@ -10,7 +10,7 @@ import Foundation
 class APIModel: APIModelProtocol {
     weak var delegate: APIResultProtocol?
     var apiInProgress: Bool = false
-    var status: ResponseStatus = .contentOver
+    var status: ResponseStatus = .unknown
     private(set) var originalJSON: [String: Any]?
     private(set) var originalData: Data?
     
@@ -42,6 +42,10 @@ class APIModel: APIModelProtocol {
             delegate?.fetchSuccess(for: params)
         case .error(let error):
             delegate?.fetchFailure(with: error, for: params)
+        case .unknown:
+            let message = ["msg": "No Response from Server"]
+            let error = NSError(domain: "Error", code: -1, userInfo: message)
+            delegate?.fetchFailure(with: error, for: params)
         }
     }
     
@@ -54,6 +58,6 @@ class APIModel: APIModelProtocol {
 extension APIModel {
     enum ResponseStatus: Equatable {
         //Use this for error handling from API Side
-        case success, error(with: NSError), contentOver
+        case success, error(with: NSError), contentOver, unknown
     }
 }
